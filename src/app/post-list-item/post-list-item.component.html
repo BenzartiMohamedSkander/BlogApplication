@@ -1,0 +1,12 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.loveIts > 0 ,
+                'list-group-item-danger': post.loveIts < 0 }">
+    <div [ngClass]="{'head-post': true}">       
+        <h2>{{ post.title }}</h2>
+        <span>{{ post.created_at | date : 'short' }}</span>
+    </div>
+    <p>{{ post.content }}</p>
+    <button class="btn btn-success" (click)="onLoved()" [ngStyle]="{'margin-right': getMarginLeft()}">Love it!</button>
+    <button class="btn btn-danger" (click)="onDontLoved()">Don't love it!</button>
+    <button class="btn btn-danger" (click)="onDelete()" style="margin-left: 547px">Supprimer post</button>
+</li>
